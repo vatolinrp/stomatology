@@ -10,10 +10,8 @@ import by.bsu.vatolinrp.subd.util.ClinicUtil;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 public class ClinicDaoImplTest
 {
@@ -94,7 +92,7 @@ public class ClinicDaoImplTest
   {
     ClinicDao clinicDao = new ClinicDaoImpl();
     Visit visit = clinicDao.getVisitById( 1L );
-    Assert.assertEquals(visit.getVisitId(), new Long(1));
+    Assert.assertEquals( visit.getVisitId(), new Long( 1 ) );
   }
 
   @Test
@@ -135,11 +133,11 @@ public class ClinicDaoImplTest
   {
     ClinicDao clinicDao = new ClinicDaoImpl();
     Doctor doctor = new Doctor();
-    doctor.setName("Name");
-    doctor.setSurname("surname");
-    doctor.setMiddlename("middlename");
-    doctor.setDateOfBirth( new Date());
-    doctor.setAddress("address");
+    doctor.setName( "Name" );
+    doctor.setSurname( "surname" );
+    doctor.setMiddlename( "middlename" );
+    doctor.setDateOfBirth( new Date() );
+    doctor.setAddress( "address" );
     clinicDao.createDoctor( doctor );
   }
 
@@ -148,13 +146,13 @@ public class ClinicDaoImplTest
   {
     ClinicDao clinicDao = new ClinicDaoImpl();
     Patient patient = new Patient();
-    patient.setDentalFormulaId(1L);
-    patient.setCurrentDoctorId(1L);
-    patient.setName("name");
-    patient.setSurname("surname");
-    patient.setMiddlename("middlename");
-    patient.setDateOfBirth(new Date());
-    patient.setAddress("address");
+    patient.setDentalFormulaId( 1L );
+    patient.setCurrentDoctorId( 1L );
+    patient.setName( "name" );
+    patient.setSurname( "surname" );
+    patient.setMiddlename( "middlename" );
+    patient.setDateOfBirth( new Date() );
+    patient.setAddress( "address" );
     clinicDao.createPatient( patient );
   }
 

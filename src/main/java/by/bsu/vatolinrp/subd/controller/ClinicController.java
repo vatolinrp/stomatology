@@ -7,9 +7,7 @@ import by.bsu.vatolinrp.subd.model.Patient;
 import by.bsu.vatolinrp.subd.model.PaymentType;
 import by.bsu.vatolinrp.subd.model.ReportLine;
 import by.bsu.vatolinrp.subd.model.Visit;
-import by.bsu.vatolinrp.subd.util.ClinicUtil;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -18,9 +16,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 @Controller
 public class ClinicController
@@ -29,7 +25,8 @@ public class ClinicController
   private ClinicDao clinicDao;
 
   @RequestMapping(value = "/patientsWithRightDoctors", method = RequestMethod.GET)
-  public ModelAndView getPatientsWithRightDoctors( HttpServletRequest request, HttpServletResponse response ) throws Exception
+  public ModelAndView getPatientsWithRightDoctors( HttpServletRequest request, HttpServletResponse response )
+    throws Exception
   {
     ModelAndView model = new ModelAndView( "MainPage" );
     List<Patient> patientList = clinicDao.getPatientsWithRightDoctors();
@@ -52,7 +49,7 @@ public class ClinicController
     throws Exception
   {
     ModelAndView model = new ModelAndView( "MainPage" );
-    String date = request.getParameter("date");
+    String date = request.getParameter( "date" );
     List<Patient> patientList = clinicDao.getPatientsByDate( date );
     List<Doctor> allDoctors = clinicDao.getAllDoctors();
     List<Patient> allPatients = clinicDao.getAllPatients();
@@ -64,13 +61,13 @@ public class ClinicController
     model.addObject( "allDentalFormulas", allDentalFormulas );
     model.addObject( "allPaymentTypes", allPaymentTypes );
     model.addObject( "allVisits", allVisits );
-    model.addObject("patients", patientList );
+    model.addObject( "patients", patientList );
     return model;
   }
 
   @RequestMapping(value = "/deleteVisit", method = RequestMethod.POST)
   public ModelAndView deleteVisit( HttpServletRequest request, HttpServletResponse response )
-      throws Exception
+    throws Exception
   {
     ModelAndView model = new ModelAndView( "MainPage" );
     Long visitId = new Long( request.getParameter( "visitId" ) );
@@ -90,7 +87,7 @@ public class ClinicController
 
   @RequestMapping(value = "/deletePatient", method = RequestMethod.POST)
   public ModelAndView deletePatient( HttpServletRequest request, HttpServletResponse response )
-      throws Exception
+    throws Exception
   {
     ModelAndView model = new ModelAndView( "MainPage" );
     Long visitId = new Long( request.getParameter( "patientId" ) );
@@ -110,7 +107,7 @@ public class ClinicController
 
   @RequestMapping(value = "/deleteDoctor", method = RequestMethod.POST)
   public ModelAndView deleteDoctor( HttpServletRequest request, HttpServletResponse response )
-      throws Exception
+    throws Exception
   {
     ModelAndView model = new ModelAndView( "MainPage" );
     Long visitId = new Long( request.getParameter( "doctorId" ) );
@@ -130,7 +127,7 @@ public class ClinicController
 
   @RequestMapping(value = "/getVisitForUpdate", method = RequestMethod.POST)
   public ModelAndView getVisitForUpdate( HttpServletRequest request, HttpServletResponse response )
-      throws Exception
+    throws Exception
   {
     ModelAndView model = new ModelAndView( "MainPage" );
     Long visitId = new Long( request.getParameter( "visitId" ) );
@@ -151,7 +148,7 @@ public class ClinicController
 
   @RequestMapping(value = "/updateVisit", method = RequestMethod.POST)
   public ModelAndView updateVisit( HttpServletRequest request, HttpServletResponse response )
-      throws Exception
+    throws Exception
   {
     SimpleDateFormat simpleDateFormat = new SimpleDateFormat( "dd-MM-yyyy" );
     ModelAndView model = new ModelAndView( "MainPage" );
@@ -182,7 +179,7 @@ public class ClinicController
 
   @RequestMapping(value = "/createVisit", method = RequestMethod.POST)
   public ModelAndView createVisit( HttpServletRequest request, HttpServletResponse response )
-      throws Exception
+    throws Exception
   {
     SimpleDateFormat simpleDateFormat = new SimpleDateFormat( "dd-MM-yyyy" );
     ModelAndView model = new ModelAndView( "MainPage" );
@@ -211,16 +208,16 @@ public class ClinicController
 
   @RequestMapping(value = "/createDoctor", method = RequestMethod.POST)
   public ModelAndView createDoctor( HttpServletRequest request, HttpServletResponse response )
-      throws Exception
+    throws Exception
   {
     SimpleDateFormat simpleDateFormat = new SimpleDateFormat( "dd-MM-yyyy" );
     ModelAndView model = new ModelAndView( "MainPage" );
     Doctor doctor = new Doctor();
-    doctor.setName( request.getParameter( "name" ));
-    doctor.setSurname( request.getParameter( "surname" ));
-    doctor.setMiddlename(request.getParameter( "middlename" ));
-    doctor.setDateOfBirth(simpleDateFormat.parse( request.getParameter( "dateOfBirth" ) ));
-    doctor.setAddress(request.getParameter( "address" ));
+    doctor.setName( request.getParameter( "name" ) );
+    doctor.setSurname( request.getParameter( "surname" ) );
+    doctor.setMiddlename( request.getParameter( "middlename" ) );
+    doctor.setDateOfBirth( simpleDateFormat.parse( request.getParameter( "dateOfBirth" ) ) );
+    doctor.setAddress( request.getParameter( "address" ) );
     clinicDao.createDoctor( doctor );
     List<Doctor> allDoctors = clinicDao.getAllDoctors();
     List<Patient> allPatients = clinicDao.getAllPatients();
@@ -237,18 +234,18 @@ public class ClinicController
 
   @RequestMapping(value = "/createPatient", method = RequestMethod.POST)
   public ModelAndView createPatient( HttpServletRequest request, HttpServletResponse response )
-      throws Exception
+    throws Exception
   {
     SimpleDateFormat simpleDateFormat = new SimpleDateFormat( "dd-MM-yyyy" );
     ModelAndView model = new ModelAndView( "MainPage" );
     Patient patient = new Patient();
-    patient.setName( request.getParameter( "name" ));
-    patient.setSurname( request.getParameter( "surname" ));
-    patient.setMiddlename(request.getParameter( "middlename" ));
-    patient.setDateOfBirth(simpleDateFormat.parse( request.getParameter( "dateOfBirth" ) ));
-    patient.setAddress(request.getParameter( "address" ));
-    patient.setCurrentDoctorId( new Long( request.getParameter( "currentDoctorId" )));
-    patient.setDentalFormulaId( new Long( request.getParameter( "dentalFormulaId" )));
+    patient.setName( request.getParameter( "name" ) );
+    patient.setSurname( request.getParameter( "surname" ) );
+    patient.setMiddlename( request.getParameter( "middlename" ) );
+    patient.setDateOfBirth( simpleDateFormat.parse( request.getParameter( "dateOfBirth" ) ) );
+    patient.setAddress( request.getParameter( "address" ) );
+    patient.setCurrentDoctorId( new Long( request.getParameter( "currentDoctorId" ) ) );
+    patient.setDentalFormulaId( new Long( request.getParameter( "dentalFormulaId" ) ) );
     clinicDao.createPatient( patient );
     List<Doctor> allDoctors = clinicDao.getAllDoctors();
     List<Patient> allPatients = clinicDao.getAllPatients();
@@ -264,7 +261,8 @@ public class ClinicController
   }
 
   @RequestMapping(value = "/sumsForEachMonth", method = RequestMethod.GET)
-  public ModelAndView getSumsForEachMonth( HttpServletRequest request, HttpServletResponse response ) throws Exception
+  public ModelAndView getSumsForEachMonth( HttpServletRequest request, HttpServletResponse response )
+    throws Exception
   {
     ModelAndView model = new ModelAndView( "MainPage" );
     List<ReportLine> reportLines = clinicDao.getSumsForEachMonth();
@@ -281,8 +279,4 @@ public class ClinicController
     model.addObject( "reportLines", reportLines );
     return model;
   }
-
-
-
-
 }

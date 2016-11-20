@@ -15,8 +15,5 @@
             <value>.jsp</value>
         </property>
     </bean>
-
-    <context:component-scan base-package="by.bsu.vatolinrp.subd" />
-
-
+    <context:component-scan base-package="by.bsu.vatolinrp.subd"/>
 </beans>

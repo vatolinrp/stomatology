@@ -16,51 +16,63 @@ public class Doctor
 
   private String address;
 
-  public Long getDoctorId() {
+  public Long getDoctorId()
+  {
     return doctorId;
   }
 
-  public void setDoctorId(Long doctorId) {
+  public void setDoctorId( Long doctorId )
+  {
     this.doctorId = doctorId;
   }
 
-  public String getName() {
+  public String getName()
+  {
     return name;
   }
 
-  public void setName(String name) {
+  public void setName( String name )
+  {
     this.name = name;
   }
 
-  public String getSurname() {
+  public String getSurname()
+  {
     return surname;
   }
 
-  public void setSurname(String surname) {
+  public void setSurname( String surname )
+  {
     this.surname = surname;
   }
 
-  public String getMiddlename() {
+  public String getMiddlename()
+  {
     return middlename;
   }
 
-  public void setMiddlename(String middlename) {
+  public void setMiddlename( String middlename )
+  {
     this.middlename = middlename;
   }
 
-  public Date getDateOfBirth() {
+  public Date getDateOfBirth()
+  {
     return dateOfBirth;
   }
 
-  public void setDateOfBirth(Date dateOfBirth) {
+  public void setDateOfBirth( Date dateOfBirth )
+  {
     this.dateOfBirth = dateOfBirth;
   }
 
-  public String getAddress() {
+  public String getAddress()
+  {
     return address;
   }
 
-  public void setAddress(String address) {
+  public void setAddress( String address )
+  {
     this.address = address;
   }
 }

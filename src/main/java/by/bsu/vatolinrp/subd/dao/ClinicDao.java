@@ -8,7 +8,6 @@ import by.bsu.vatolinrp.subd.model.ReportLine;
 import by.bsu.vatolinrp.subd.model.Visit;
 
 import java.util.List;
-import java.util.Map;
 
 public interface ClinicDao
 {
@@ -36,7 +35,7 @@ public interface ClinicDao
 
   void createVisit( Visit visit );
 
-  void createDoctor( Doctor doctor);
+  void createDoctor( Doctor doctor );
 
   void createPatient( Patient patient );
 

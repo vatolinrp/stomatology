@@ -22,75 +22,93 @@ public class Visit
 
   private Long doctorForReplaceId;
 
-  public Long getVisitId() {
+  public Long getVisitId()
+  {
     return visitId;
   }
 
-  public void setVisitId(Long visitId) {
+  public void setVisitId( Long visitId )
+  {
     this.visitId = visitId;
   }
 
-  public Long getPatientId() {
+  public Long getPatientId()
+  {
     return patientId;
   }
 
-  public void setPatientId(Long patientId) {
+  public void setPatientId( Long patientId )
+  {
     this.patientId = patientId;
   }
 
-  public Long getPaymentTypeId() {
+  public Long getPaymentTypeId()
+  {
     return paymentTypeId;
   }
 
-  public void setPaymentTypeId(Long paymentTypeId) {
+  public void setPaymentTypeId( Long paymentTypeId )
+  {
     this.paymentTypeId = paymentTypeId;
   }
 
-  public Long getCurrentDoctorId() {
+  public Long getCurrentDoctorId()
+  {
     return currentDoctorId;
   }
 
-  public void setCurrentDoctorId(Long currentDoctorId) {
+  public void setCurrentDoctorId( Long currentDoctorId )
+  {
     this.currentDoctorId = currentDoctorId;
   }
 
-  public Date getDateOfVisit() {
+  public Date getDateOfVisit()
+  {
     return dateOfVisit;
   }
 
-  public void setDateOfVisit(Date dateOfVisit) {
+  public void setDateOfVisit( Date dateOfVisit )
+  {
     this.dateOfVisit = dateOfVisit;
   }
 
-  public Long getDentalFormulaId() {
+  public Long getDentalFormulaId()
+  {
     return dentalFormulaId;
   }
 
-  public void setDentalFormulaId(Long dentalFormulaId) {
+  public void setDentalFormulaId( Long dentalFormulaId )
+  {
     this.dentalFormulaId = dentalFormulaId;
   }
 
-  public Integer getCost() {
+  public Integer getCost()
+  {
     return cost;
   }
 
-  public void setCost(Integer cost) {
+  public void setCost( Integer cost )
+  {
     this.cost = cost;
   }
 
-  public String getDescription() {
+  public String getDescription()
+  {
     return description;
   }
 
-  public void setDescription(String description) {
+  public void setDescription( String description )
+  {
     this.description = description;
   }
 
-  public Long getDoctorForReplaceId() {
+  public Long getDoctorForReplaceId()
+  {
     return doctorForReplaceId;
   }
 
-  public void setDoctorForReplaceId(Long doctorForReplaceId) {
+  public void setDoctorForReplaceId( Long doctorForReplaceId )
+  {
     this.doctorForReplaceId = doctorForReplaceId;
   }
 }
